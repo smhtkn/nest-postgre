@@ -1,6 +1,7 @@
 import { TypeOrmModuleOptions } from '@nestjs/typeorm';
 
-require('dotenv').config();
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 class ConfigService {
 
@@ -44,10 +45,6 @@ class ConfigService {
       migrationsTableName: 'migration',
 
       migrations: ['src/migration/*.ts'],
-
-      cli: {
-        migrationsDir: 'src/migration',
-      },
 
       ssl: this.isProduction(),
     };
